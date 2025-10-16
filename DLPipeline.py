@@ -59,7 +59,7 @@ class DeepLearningPipeline:
     def optimizerPrepare(self,):
         self.optimizer = optim.Adam(filter(lambda x: x.requires_grad, self.model.parameters()), lr=self.opt.lr)
         print(">>> total params: {:.2f}M".format(sum(p.numel() for p in self.model.parameters()) / 1000000.0))
-    
+        
     def lossPrepare(self,):
         if self.opt.loss_type == "MSE":
             self.lossType = nn.MSELoss()
